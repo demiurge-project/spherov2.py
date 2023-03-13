@@ -689,7 +689,7 @@ class SpheroEduAPI:
         return self.__leds.get('logic_display', None)
 
     # Communications
-    def start_ir_broadcast(self, near: int, far: int):
+    def start_ir_broadcast(self, far: int, near: int):
         """Sets the IR emitters to broadcast on two specified channels, from 0 to 7, so other BOLTs can follow or evade.
         The broadcaster uses two channels because the first channel emits near IR pulses (< 1 meter), and the second
         channel emits far IR pulses (1 to 3 meters) so the following and evading BOLTs can detect these messages on
@@ -703,7 +703,7 @@ class SpheroEduAPI:
         """Stops the broadcasting behavior."""
         ToyUtil.stop_robot_to_robot_infrared_broadcasting(self.__toy)
 
-    def start_ir_follow(self, near: int, far: int):
+    def start_ir_follow(self, far: int, near: int):
         """Sets the IR receivers to look for broadcasting BOLTs on the same channel pair, from 0 to 7. Upon receiving
         messages from a broadcasting BOLT, the follower will adjust its heading and speed to follow the broadcaster.
         When a follower loses sight of a broadcaster, the follower will spin in place to search for the broadcaster.
@@ -716,7 +716,7 @@ class SpheroEduAPI:
         """Stops the following behavior."""
         ToyUtil.stop_robot_to_robot_infrared_following(self.__toy)
 
-    def start_ir_evade(self, near: int, far: int):
+    def start_ir_evade(self, far: int, near: int):
         """Sets the IR receivers to look for broadcasting BOLTs on the same channel pair, from 0 to 7. Upon receiving
         messages from a broadcasting BOLT, the evader will adjust its heading to roll away from the broadcaster.
         When an evader loses sight of a broadcaster, the evader will spin in place to search for the broadcaster.

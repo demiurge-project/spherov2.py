@@ -222,12 +222,12 @@ class BOLT(ToyV2):
     remove_sensor_streaming_data_notify_listener = partialmethod(Toy._remove_listener,
                                                                  Sensor.sensor_streaming_data_notify)  # SensorStreamingDataNotifyCommand
     set_locator_flags = Sensor.set_locator_flags  # SetLocatorFlagsCommand
-    start_robot_to_robot_infrared_broadcasting = Sensor.start_robot_to_robot_infrared_broadcasting  # StartRobotToRobotInfraredBroadcastingCommand
-    start_robot_to_robot_infrared_evading = Sensor.start_robot_to_robot_infrared_evading  # StartRobotToRobotInfraredEvadingCommand
-    start_robot_to_robot_infrared_following = Sensor.start_robot_to_robot_infrared_following  # StartRobotToRobotInfraredFollowingCommand
-    stop_robot_to_robot_infrared_broadcasting = Sensor.stop_robot_to_robot_infrared_broadcasting  # StopRobotToRobotInfraredBroadcastingCommand
-    stop_robot_to_robot_infrared_evading = Sensor.stop_robot_to_robot_infrared_evading  # StopRobotToRobotInfraredEvadingCommand
-    stop_robot_to_robot_infrared_following = Sensor.stop_robot_to_robot_infrared_following  # StopRobotToRobotInfraredFollowingCommand
+    start_robot_to_robot_infrared_broadcasting = partialmethod(Sensor.start_robot_to_robot_infrared_broadcasting, proc=Processors.SECONDARY)  # StartRobotToRobotInfraredBroadcastingCommand
+    start_robot_to_robot_infrared_evading = partialmethod(Sensor.start_robot_to_robot_infrared_evading, proc=Processors.SECONDARY)  # StartRobotToRobotInfraredEvadingCommand
+    start_robot_to_robot_infrared_following = partialmethod(Sensor.start_robot_to_robot_infrared_following, proc=Processors.SECONDARY)  # StartRobotToRobotInfraredFollowingCommand
+    stop_robot_to_robot_infrared_broadcasting = partialmethod(Sensor.stop_robot_to_robot_infrared_broadcasting, proc=Processors.SECONDARY)  # StopRobotToRobotInfraredBroadcastingCommand
+    stop_robot_to_robot_infrared_evading = partialmethod(Sensor.stop_robot_to_robot_infrared_evading, proc=Processors.SECONDARY)  # StopRobotToRobotInfraredEvadingCommand
+    stop_robot_to_robot_infrared_following = partialmethod(Sensor.stop_robot_to_robot_infrared_following, proc=Processors.SECONDARY)  # StopRobotToRobotInfraredFollowingCommand
 
     # System Info
     erase_config_block = SystemInfo.erase_config_block  # EraseConfigBlockCommand
