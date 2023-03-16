@@ -155,8 +155,11 @@ class Sensor(Commands):
 
     @staticmethod
     def get_bot_to_bot_infrared_readings(toy, proc=None):
-        data = to_int(toy._execute(Sensor._encode(toy, 34, proc)).data)
-        return BotToBotInfraredReadings(data & 1, data & 2, data & 4, data & 8)
+        #data = to_int(toy._execute(Sensor._encode(toy, 34, proc)).data)
+        #return BotToBotInfraredReadings(data & 1, data & 2, data & 4, data & 8)
+        data = toy._execute(Sensor._encode(toy, 34, proc)).data
+        return BotToBotInfraredReadings(data[0], data[1], data[2], data[3])
+
 
     @staticmethod
     def get_rgbc_sensor_values(toy, proc=None):

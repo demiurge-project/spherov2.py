@@ -98,6 +98,7 @@ class SpheroEduAPI:
         self.__falling_v = 1.
         self.__last_message = None
         self.__should_land = self.__free_falling = False
+        self.__ir_readings = None
 
         self.__listeners = defaultdict(set)
         ToyUtil.add_listeners(toy, self)
@@ -659,6 +660,12 @@ class SpheroEduAPI:
     def get_front_led(self):
         """Provides the RGB color of the front LED, from 0 to 255 for each color channel."""
         return self.__leds.get('front', None)
+    
+    def get_ir_readings(self):
+        """Provides homemade implementatoin to get ir readings. Must be improved."""
+        self.__ir_readings = BOLT.get_bot_to_bot_infrared_readings(self.__toy)
+        return self.__ir_readings[0], self.__ir_readings[1], self.__ir_readings[2], self.__ir_readings[3]
+        
 
     # Sphero RVR Sensors
     def get_color(self):

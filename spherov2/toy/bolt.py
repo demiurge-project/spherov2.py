@@ -197,7 +197,7 @@ class BOLT(ToyV2):
     configure_collision_detection = Sensor.configure_collision_detection  # ConfigureCollisionDetectionCommand
     enable_gyro_max_notify = partialmethod(Sensor.enable_gyro_max_notify, proc=Processors.SECONDARY)  # EnableGyroMaxNotifyCommand
     get_ambient_light_sensor_value = partialmethod(Sensor.get_ambient_light_sensor_value, proc=Processors.SECONDARY)
-    get_bot_to_bot_infrared_readings = Sensor.get_bot_to_bot_infrared_readings  # GetBotToBotInfraredReadingsCommand
+    get_bot_to_bot_infrared_readings = partialmethod(Sensor.get_bot_to_bot_infrared_readings, proc=Processors.SECONDARY)  # GetBotToBotInfraredReadingsCommand
     get_sensor_streaming_mask = partialmethod(Sensor.get_sensor_streaming_mask, proc=Processors.SECONDARY)  # GetSensorStreamingMaskCommand
     set_sensor_streaming_mask = partialmethod(Sensor.set_sensor_streaming_mask, proc=Processors.SECONDARY)  # SetSensorStreamingMaskCommand
     get_extended_sensor_streaming_mask = partialmethod(Sensor.get_extended_sensor_streaming_mask, proc=Processors.SECONDARY)  # GetExtendedSensorStreamingMaskCommand
