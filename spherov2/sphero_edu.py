@@ -696,7 +696,7 @@ class SpheroEduAPI:
         return self.__leds.get('logic_display', None)
 
     # Communications
-    def start_ir_broadcast(self, far: int, near: int):
+    def start_ir_broadcast(self, near: int, far: int):
         """Sets the IR emitters to broadcast on two specified channels, from 0 to 7, so other BOLTs can follow or evade.
         The broadcaster uses two channels because the first channel emits near IR pulses (< 1 meter), and the second
         channel emits far IR pulses (1 to 3 meters) so the following and evading BOLTs can detect these messages on
